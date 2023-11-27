@@ -251,8 +251,14 @@ const cheeses = [
 alert("Welcome to Cheese Wiz!")
 console.log(cheeses)
 
-let userSearchOption = prompt("Search 'cheese name' or 'country of origin':");
-if (userSearchOption === 'cheese name'){
+// let userSearchOption = prompt("Search 'cheese name' or 'country of origin':");
+// if (userSearchOption === 'cheese name'){
+//     let cheeseNameString=prompt("Enter search string:")
+//     while(cheeses.name === cheeseNameString){
+//         console.log(cheeses.name)
+//     }
+
+let userSearchOption = `(prompt) enter(${Search ==="name" ? "cheese name" : "country of origin"}`);
     let cheeseNameString=prompt("Enter search string:")
     while(cheeses.name === cheeseNameString){
         console.log(cheeses.name)
@@ -265,6 +271,10 @@ if (userSearchOption === 'country of origin') {
 }else {
     alert("Invalid input")
 }
+
+
+
+
 
 if (userSearchOption !== "name" && userSearchOption !== "country") {
     // Invalid input
