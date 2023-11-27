@@ -305,29 +305,22 @@ console.log(cheeses)
             alert("Invalid input. Please start again.");
         } else {
             // Optional: Ask user for cheese type filter
-            const cheeseType = prompt("Enter cheese type (hard/soft/semi-hard/all):");
+            let cheeseType = prompt("Enter cheese type (hard/soft/semi-hard/all):");
 
             // Ask user for search string
-            const searchString = prompt(`Enter the ${userSearchOption === "name" ? "cheese name" : "country of origin"}:`);
+            let searchString = prompt(`Enter the ${userSearchOption === "name" ? "cheese name" : "country of origin"}:`);
 
             // Filter cheese
-            const filteredCheeses = cheeses.filter((cheese) => {
-                const typeCondition = cheeseType === "all" || cheese.type.toLowerCase() === cheeseType.toLowerCase();
-                const searchCondition =
+            let endResult = cheeses.filter((cheese) => {
+                let typeCondition = cheeseType === "all" || cheese.type.toLowerCase() === cheeseType.toLowerCase();
+                let twoSearchCondition =
                     userSearchOption === "name"
                         ? cheese.name.toLowerCase().startsWith(searchString.toLowerCase())
                         : cheese.country_of_origin.toLowerCase().startsWith(searchString.toLowerCase());
 
-                return typeCondition && searchCondition;
+                return typeCondition && twoSearchCondition;
+                console.log(userSearchOption);
             });
 
-            // // Display formatted output
-            // if (filteredCheeses.length > 0) {
-            //     let formattedOutput = filteredCheeses
-            //         .map((cheese) => `${cheese.name} from ${cheese.country_of_origin} (${cheese.type})`)
-            //         .join("\n");
-            //     alert(formattedOutput);
-            // } else {
-            //     alert("No matching cheeses found.");
-            // }
+
         }
