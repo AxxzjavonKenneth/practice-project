@@ -258,27 +258,76 @@ console.log(cheeses)
 //         console.log(cheeses.name)
 //     }
 
-let userSearchOption = `(prompt) enter(${Search ==="name" ? "cheese name" : "country of origin"}`);
-    let cheeseNameString=prompt("Enter search string:")
-    while(cheeses.name === cheeseNameString){
-        console.log(cheeses.name)
-    }
-
-
-}
-if (userSearchOption === 'country of origin') {
-    let countryOriginString=prompt("Enter search string:")
-}else {
-    alert("Invalid input")
-}
+// Ask user for search string
+// let userSearchOption = prompt(`Enter the ${searchPreference === "name" ? "cheese name" : "country of origin"}:`);
+//
+//
 
 
 
+//
+//
+// if (userSearchOption !== "name" && userSearchOption !== "country") {
+//     // Invalid input
+//     alert("Invalid input. Please start again.");
+//
+//     let userSearchOption = prompt("Search 'cheese name' or 'country of origin':");
+//     if (userSearchOption === 'cheese name'){
+//         let cheeseNameString=prompt("Enter search string:")
+//         while(cheeses.name === cheeseNameString){
+//             console.log(cheeses.name)
+//         }
+//
+//     }
+//     if (userSearchOption === 'country of origin') {
+//         let countryOriginString=prompt("Enter search string:")
+//     }else {
+//         alert("Invalid input")
+//     }
+//
+//     if (userSearchOption !== "name" && userSearchOption !== "country") {
+//         // Invalid input
+//         alert("Invalid input. Please start again.");
+//     } else {
+//         // Optional: Ask user for cheese type filter
+//         const cheeseType = prompt("Enter cheese type (hard/soft/semi-hard/all):");
+//
+//
+//         if (userSearchOption !== "name" && userSearchOption !== "country") {
+//             // Invalid input
+//             alert("Invalid input. Please start again.");}
 
 
-if (userSearchOption !== "name" && userSearchOption !== "country") {
-    // Invalid input
-    alert("Invalid input. Please start again.");
-} else {
-    // Optional: Ask user for cheese type filter
-    const cheeseType = prompt("Enter cheese type (hard/soft/semi-hard/all):");
+        // Ask user for search preference
+        let userSearchOption = prompt("Do you want to search by cheese name or country of origin?");
+        if (userSearchOption !== "name" && userSearchOption !== "country") {
+            // Invalid input
+            alert("Invalid input. Please start again.");
+        } else {
+            // Optional: Ask user for cheese type filter
+            const cheeseType = prompt("Enter cheese type (hard/soft/semi-hard/all):");
+
+            // Ask user for search string
+            const searchString = prompt(`Enter the ${userSearchOption === "name" ? "cheese name" : "country of origin"}:`);
+
+            // Filter cheese
+            const filteredCheeses = cheeses.filter((cheese) => {
+                const typeCondition = cheeseType === "all" || cheese.type.toLowerCase() === cheeseType.toLowerCase();
+                const searchCondition =
+                    userSearchOption === "name"
+                        ? cheese.name.toLowerCase().startsWith(searchString.toLowerCase())
+                        : cheese.country_of_origin.toLowerCase().startsWith(searchString.toLowerCase());
+
+                return typeCondition && searchCondition;
+            });
+
+            // // Display formatted output
+            // if (filteredCheeses.length > 0) {
+            //     let formattedOutput = filteredCheeses
+            //         .map((cheese) => `${cheese.name} from ${cheese.country_of_origin} (${cheese.type})`)
+            //         .join("\n");
+            //     alert(formattedOutput);
+            // } else {
+            //     alert("No matching cheeses found.");
+            // }
+        }
