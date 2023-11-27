@@ -324,3 +324,18 @@ console.log(cheeses)
 
 
         }
+// Display formatted output
+if (endResult.length > 0) {
+    let formattedOutput = filteredCheeses
+        .map((cheese) => `${cheese.name} from ${cheese.country_of_origin} (${cheese.type})`)
+        .join("\n");
+    alert(formattedOutput)  // Display formatted output
+    if (filteredCheeses.length > 0) {
+        const output = filteredCheeses
+            .map((cheese) => `${cheese.name} from ${cheese.country_of_origin} (${cheese.type})`)
+            .join("\n");
+        alert(output);
+    } else {
+        alert("No matching cheeses found.");
+    }
+}
